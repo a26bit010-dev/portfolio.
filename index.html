@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Quality Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">✦ PromptCheck</div>
+        <span class="header-tag">STUDENT EDITION</span>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <span class="eyebrow">PROMPT ENGINEERING TOOL</span>
+            <h1>AI Prompt Quality Checker</h1>
+            <p>
+                Improve your AI prompts by checking five essential
+                components of effective prompt engineering.
+            </p>
+        </section>
+
+        <div class="workspace">
+
+            <!-- LEFT: PROMPT INPUT -->
+            <section class="input-card">
+                <div class="card-heading">
+                    <div>
+                        <h2>Write Your Prompt</h2>
+                        <p>Enter or paste your AI prompt below.</p>
+                    </div>
+                    <span class="step">01</span>
+                </div>
+
+                <label for="promptInput">Your AI Prompt</label>
+
+                <textarea
+                    id="promptInput"
+                    placeholder="Example: Act as an expert teacher. Explain artificial intelligence to college students using simple examples. Keep the explanation under 300 words and present the answer in bullet points..."
+                ></textarea>
+
+                <div class="word-count">
+                    <span id="wordCount">0 words</span>
+                    <span>Minimum: No limit</span>
+                </div>
+
+                <div id="errorMessage" class="error-message"></div>
+
+                <div class="button-group">
+                    <button id="checkBtn" class="primary-btn">
+                        ✦ Check Prompt
+                    </button>
+
+                    <button id="sampleBtn" class="sample-btn">
+                        ◉ Load Sample
+                    </button>
+
+                    <button id="clearBtn" class="clear-btn">
+                        ↻ Clear
+                    </button>
+                </div>
+
+                <div class="tip-box">
+                    <span>💡</span>
+                    <p>
+                        <strong>Quick Tip:</strong> A good prompt should
+                        clearly explain who the AI is, what it should do,
+                        and how the answer should look.
+                    </p>
+                </div>
+            </section>
+
+            <!-- RIGHT: ANALYSIS RESULTS -->
+            <section class="result-card">
+
+                <div class="card-heading">
+                    <div>
+                        <h2>Analysis Results</h2>
+                        <p>Five essential prompt components.</p>
+                    </div>
+                    <span class="step">02</span>
+                </div>
+
+                <!-- SCORE -->
+                <div class="score-section">
+                    <div class="score-circle">
+                        <div>
+                            <h2 id="totalScore">--</h2>
+                            <span>/ 100</span>
+                        </div>
+                    </div>
+
+                    <div class="score-info">
+                        <span class="score-label">YOUR PROMPT SCORE</span>
+                        <h3 id="rating">Not Checked</h3>
+                        <p id="ratingDescription">
+                            Check your prompt to see your results.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PROGRESS BAR -->
+                <div class="progress-section">
+                    <div class="progress-heading">
+                        <span>Overall Quality</span>
+                        <strong id="progressText">0%</strong>
+                    </div>
+
+                    <div class="progress-track">
+                        <div id="progressBar" class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- COMPONENT RESULTS -->
+                <h3 class="section-title">Component Checklist</h3>
+
+                <div class="component-list">
+
+                    <div class="component-item" id="roleResult">
+                        <div class="component-icon">👤</div>
+                        <div class="component-content">
+                            <h4>Role</h4>
+                            <p>Defines who the AI should act as.</p>
+                        </div>
+                        <div class="component-status">—</div>
+                        <span class="component-mark">0/20</span>
+                    </div>
+
+                    <div class="component-item" id="taskResult">
+                        <div class="component-icon">🎯</div>
+                        <div class="component-content">
+                            <h4>Task</h4>
+                            <p>Explains what the AI must do.</p>
+                        </div>
+                        <div class="component-status">—</div>
+                        <span class="component-mark">0/20</span>
+                    </div>
+
+                    <div class="component-item" id="contextResult">
+                        <div class="component-icon">📚</div>
+                        <div class="component-content">
+                            <h4>Context</h4>
+                            <p>Provides background information.</p>
+                        </div>
+                        <div class="component-status">—</div>
+                        <span class="component-mark">0/20</span>
+                    </div>
+
+                    <div class="component-item" id="constraintsResult">
+                        <div class="component-icon">🔒</div>
+                        <div class="component-content">
+                            <h4>Constraints</h4>
+                            <p>Specifies rules and limitations.</p>
+                        </div>
+                        <div class="component-status">—</div>
+                        <span class="component-mark">0/20</span>
+                    </div>
+
+                    <div class="component-item" id="formatResult">
+                        <div class="component-icon">📄</div>
+                        <div class="component-content">
+                            <h4>Output Format</h4>
+                            <p>Describes the expected answer format.</p>
+                        </div>
+                        <div class="component-status">—</div>
+                        <span class="component-mark">0/20</span>
+                    </div>
+
+                </div>
+
+                <!-- SUGGESTIONS -->
+                <div class="suggestions-section">
+                    <h3>💡 Improvement Suggestions</h3>
+
+                    <div id="suggestions">
+                        <p class="empty-suggestion">
+                            Suggestions will appear here after analysis.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+        <footer>
+            <p>✦ AI Prompt Quality Checker | Designed for College Students</p>
+            <span>Learn • Practice • Improve</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
